@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Registro UFCJ</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!--metadatos-->
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Universidad Fronteriza de Ciudad Juárez, 16 días de activismo contra la violencia de género..."/>
+    <meta name="keywords" content="Fronteriza, Universidad, Activismo"/>
+    <meta name="robots" content="index"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/EstiloFooter.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/buscador.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img alt="UFCJ" class="logo" src="/images/favicon.ico"/>
+            </a>
+        </div>
+        <b><h1 class="ufcj">UNIVERSIDAD FRONTERIZA DE CIUDAD JUÁREZ</h1></b>
+        <div class="buscar-wrapper">
+            <ul id="results" class="results"></ul>
+            <input type="text" id="buscar" placeholder="Buscar" class="buscar-input">
+            <button onclick="buscar()" class="buscar-button">Buscar</button>
+        </div>
+        <script src="/js/Buscador.js"></script>
+    </header>
+    <div id="menu">
+        <ul id="menu-list">
+            <!--Elementos dinámicos-->
+        </ul>
+    </div>
+    <script src="/js/Menu.js"></script>
+
+    <div class="container-principal">
+        <div class="container">
+            <br>
+            <center><h2 style="font-weight: 700;">Registro</h2></center>
+            <form action="/database/estudiantes" method="post" onsubmit="return validarFormulario()">
+                <label for="usuario">Nombre:</label>
+                <input type="text" id="nombre" name="Nombre" class="inputs" placeholder="Escribe tu nombre" required>
+
+                <label for="usuario">Confirmar Nombre:</label>
+                <input type="text" id="nombre_confirmar" name="Nombre_confirmar" class="inputs" placeholder="Confirma tu nombre" required>
+                
+                <label for="usuario">Matricula:</label>
+                <input type="text" id="matricula" name="Matricula" class="inputs" placeholder="Escribe tu matrícula" required>
+
+                <label for="usuario">Apellido:</label>
+                <input type="text" id="apellido" name="Apellido" class="inputs" placeholder="Escribe tus apellidos" required>
+                
+                <label for="usuario">Grupo:</label>
+                <input type="text" id="grupo" name="Grupo" class="inputs" placeholder="Escribe tu grupo" required>
+                
+                <label for="text">Nombre del tutor:</label>
+                <input type="text" id="tutor" name="Tutor" class="inputs" placeholder="Escribe el nombre de tu tutor" required>
+                
+                <label for="usuario">Correo:</label>
+                <input type="email" id="correo" name="Correo" class="inputs" placeholder="Escribe tu correo" required>
+                
+                <label for="text">Nombre de carrera:</label>
+                <input type="text" id="carrera" name="Carrera" class="inputs" placeholder="Escribe el nombre completo de tu carrera" required>
+                
+                <label for="text">Contraseña:</label>
+                <input type="password" id="contra" name="Password" class="inputs" placeholder="Crea una contraseña" required>
+                
+                <label for="text">Confirmar Contraseña:</label>
+                <input type="password" id="contra_confirmar" name="pass_confirmar" class="inputs" placeholder="Escribe nuevamente la contraseña" required>
+                
+                <input type="button" value="Regresar" onclick="window.location.href='login'" class="btn-regresar">
+                <input type="submit" value="Regístrate" class="iniciar">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div id="dynamic-footer">
+        </div>
+    </footer>
+    <script src="/js/Footer.js"></script>
+    
+    <script>
+        function validarFormulario() {
+            var nombre = document.getElementById("nombre").value;
+            var nombreConfirmar = document.getElementById("nombre_confirmar").value;
+            var password = document.getElementById("contra").value;
+            var confirmPassword = document.getElementById("contra_confirmar").value;
+
+            if (nombre !== nombreConfirmar) {
+                alert("El nombre y la confirmación del nombre deben ser iguales.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("La contraseña y la confirmación de la contraseña deben ser iguales.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

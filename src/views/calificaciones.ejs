@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calificaciones</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!--metadatos-->
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Universidad Fronteriza de Ciudad Juárez, 16 días de activismo contra la violencia de género..."/>
+    <meta name="keywords" content="Fronteriza, Universidad, Activismo"/>
+    <meta name="robots" content="index"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/EstiloFooter.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/buscador.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/calificaciones.css">
+    <style>
+        .back-to-profile {
+            position: fixed;
+            top: 26%;
+            left: 50px;
+            background-color: #052027;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .back-to-profile:hover {
+            background-color: #03424b;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="">
+        <div class="logo">
+            <a href="/">
+                <img alt="UFCJ" class="logo" src="/images/favicon.ico"/>
+            </a>
+        </div>
+        <b><h1 class="ufcj">UNIVERSIDAD FRONTERIZA DE CIUDAD JUÁREZ</h1></b>
+        <div class="buscar-wrapper">
+            <ul id="results" class="results"></ul>
+            <input type="text" id="buscar" placeholder="Buscar" class="buscar-input">
+            <button onclick="buscar()" class="buscar-button">Buscar</button>
+        </div>
+        <script src="/js/Buscador.js"></script>
+    </header>
+
+    <div id="menu">
+        <ul id="menu-list">
+            <!--Elementos dinámicos-->
+        </ul>
+    </div>
+    <script src="/js/Menu.js"></script>
+
+    <br>    
+    <center><h1 style="font-weight: 700;">Boleta de calificaciones</h1></center>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Materia</th>
+                    <th>Unidad 1</th>
+                    <th>Unidad 2</th>
+                    <th>Unidad 3</th>
+                    <th>Calificacion Final</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Matemáticas III</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Seguridad de aplicaciones</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Metodología de la investigación</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Base de datos II</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--a href="/Perfil" class="back-to-profile" onclick="window.location.href='/Perfil'">Regresar a Perfil</a-->
+
+    <footer>
+        <div id="dynamic-footer">
+        </div>
+    </footer>
+    <script src="/js/Footer.js"></script>
+</body>
+
+</html>

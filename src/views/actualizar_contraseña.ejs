@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Actualizar contraseña UFCJ</title>
+        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+        <!--metadatos-->
+        <meta charset="UTF-8">
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Universidad Fronteriza de Ciudad Juárez, 16 días de activismo contra la violencia de género..."/>
+        <meta name="keywords" content="Fronteriza, Universidad, Activismo"/>
+        <meta name="robots" content="index"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/EstiloFooter.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/buscador.css">
+        <link rel="stylesheet" href="/css/recuperar.css">
+    </head>
+    <body>
+        <header class="">
+            <div class="logo">
+                <a href="/">
+                    <img alt="UFCJ" class="logo" src="/images/favicon.ico"/>
+                </a>
+            </div>
+            <b><h1 class="ufcj">UNIVERSIDAD FRONTERIZA DE CIUDAD JUÁREZ</h1></b>
+                <div class="buscar-wrapper">
+                    <ul id="results" class="results"></ul>
+                    <input type="text" id="buscar" placeholder="Buscar" class="buscar-input">
+                    <button onclick="buscar()" class="buscar-button">Buscar</button>
+                </div>
+                <script src="/js/Buscador.js"></script>
+            </div>
+        </header>
+        <div id="menu">
+            <ul id="menu-list">
+                <!--Elementos dinámicos-->
+            </ul>
+        </div>
+        <script src="/js/Menu.js"></script>
+
+        <div class="contenedor-principal">
+            <div class="imagen-container">
+                <img src="/images/key.jpg" alt="Búzon de Quejas" class="imagen-buzon">
+            </div>
+            <div class="contenedor-secundario">
+                
+            <br>
+            <center><h2 style="font-weight: 700;">Actualizar contraseña</h2></center>
+            <form action="" method="">
+                <label for="text">Nueva contraseña:</label>
+                <input type="password" id="contra_nueva" name="contra_nueva" placeholder="Escribe la nueva contraseña" class="inputs" required>
+                <label for="text">Confirmar contraseña:</label>
+                <input type="password" id="contra_confirmar" name="contra_confirmar" placeholder="Escribe nuevamente la contraseña" class="inputs" required>
+                <input type="button" value="Regresar" onclick="window.location.href='BuzonQuejas.html'" class="btn-regresar">
+                <input type="submit" value="Actualizar" class="iniciar">      
+            </form>
+            </div>
+        </div>
+    
+        <script src="recovery.js"></script>
+        
+        <footer>
+            <div id="dynamic-footer">
+            </div>
+        </footer>
+    
+        <script src="/js/Footer.js"></script>
+</body>
+</html>

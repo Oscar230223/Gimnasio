@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chat grupal UFCJ</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!--metadatos-->
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Universidad Fronteriza de Ciudad Juárez, 16 días de activismo contra la violencia de género..."/>
+    <meta name="keywords" content="Fronteriza, Universidad, Activismo"/>
+    <meta name="robots" content="index"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/EstiloFooter.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/buscador.css">
+    <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img alt="UFCJ" class="logo" src="/images/favicon.ico"/>
+            </a>
+        </div>
+        <b><h1 class="ufcj">UNIVERSIDAD FRONTERIZA DE CIUDAD JUÁREZ</h1></b>
+        <div class="buscar-wrapper">
+            <ul id="results" class="results"></ul>
+            <input type="text" id="buscar" placeholder="Buscar" class="buscar-input">
+            <button onclick="buscar()" class="buscar-button">Buscar</button>
+        </div>
+        <script src="/js/Buscador.js"></script>
+    </header>
+    <div id="menu">
+        <ul id="menu-list">
+            <!--Elementos dinámicos-->
+        </ul>
+    </div>
+    <script src="/js/Menu.js"></script>
+
+    <div class="container"><br>
+        <h2 style="font-weight: 700;">Mensajes del chat grupal</h2><br>
+        <div class="chat-container">
+            <% for(var i = 0; i < datos.length; i++) { %>
+                <div class="message <%= i % 2 === 0 ? 'left' : 'right' %>">
+                    <div class="content">
+                        <strong><%= datos[i].usuario %>:</strong>
+                        <p><%= datos[i].mensaje %></p>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+    <form id="message-form" action="/database/chat" method="post">
+        <input type="text" id="usuario" name="Usuario" placeholder="Escribe tu usuario" class="inputT" required>
+        <input type="text" id="mensaje" name="Mensaje" placeholder="Mensaje" class="inputT" required>
+        <input type="submit" class="input">
+    </form>
+
+    <footer>
+        <div id="dynamic-footer"></div>
+    </footer>
+
+    <script src="/js/Footer.js"></script>
+</body>
+</html>
