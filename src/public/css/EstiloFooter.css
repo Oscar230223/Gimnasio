@@ -1,0 +1,13 @@
+footer {
+    background-color: #4d4c4c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#dynamic-footer {
+    font-size: 18px;
+    text-align: center;
+    white-space: pre-line;
+    font-weight: 500;
+}
