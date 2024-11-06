@@ -5,6 +5,11 @@ router.get("/", (req, res) => {
     res.render("index");
 });
 
+router.get("/perfilAdmin", (req, res) => {
+    res.render("perfilAdmin");
+});
+
+
 router.get("/ActualizarContraseña", (req, res) => {
     res.render("actualizar_contraseña");
 });
