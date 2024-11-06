@@ -1,82 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Registro UFCJ</title>
+    <title>Registro</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <!--metadatos-->
     <meta charset="UTF-8">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Universidad Fronteriza de Ciudad Juárez, 16 días de activismo contra la violencia de género..."/>
-    <meta name="keywords" content="Fronteriza, Universidad, Activismo"/>
+    <meta name="description" content="EmergencyApp"/>
+    <meta name="keywords" content="EmergencyApp, Gimnasio, Entrenadores, Ayuda"/>
     <meta name="robots" content="index"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/EstiloFooter.css">
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/buscador.css">
-    <link rel="stylesheet" href="/css/login.css">
+    <!--link rel="stylesheet" href="/css/buscador.css"-->
 </head>
-<body>
+<body class="body-registro">
     <header>
         <div class="logo">
             <a href="/">
-                <img alt="UFCJ" class="logo" src="/images/favicon.ico"/>
+                <img alt="EmergencyApp" class="logo" src="/images/logo.png"/>
             </a>
         </div>
-        <b><h1 class="ufcj">UNIVERSIDAD FRONTERIZA DE CIUDAD JUÁREZ</h1></b>
-        <div class="buscar-wrapper">
-            <ul id="results" class="results"></ul>
-            <input type="text" id="buscar" placeholder="Buscar" class="buscar-input">
-            <button onclick="buscar()" class="buscar-button">Buscar</button>
-        </div>
-        <script src="/js/Buscador.js"></script>
+        <b><h1 class="text">EmergencyApp</h1></b>
     </header>
-    <div id="menu">
-        <ul id="menu-list">
-            <!--Elementos dinámicos-->
-        </ul>
-    </div>
-    <script src="/js/Menu.js"></script>
-
-    <div class="container-principal">
-        <div class="container">
-            <br>
-            <center><h2 style="font-weight: 700;">Registro</h2></center>
-            <form action="/database/estudiantes" method="post" onsubmit="return validarFormulario()">
-                <label for="usuario">Nombre:</label>
-                <input type="text" id="nombre" name="Nombre" class="inputs" placeholder="Escribe tu nombre" required>
-
-                <label for="usuario">Confirmar Nombre:</label>
-                <input type="text" id="nombre_confirmar" name="Nombre_confirmar" class="inputs" placeholder="Confirma tu nombre" required>
-                
-                <label for="usuario">Matricula:</label>
-                <input type="text" id="matricula" name="Matricula" class="inputs" placeholder="Escribe tu matrícula" required>
-
-                <label for="usuario">Apellido:</label>
-                <input type="text" id="apellido" name="Apellido" class="inputs" placeholder="Escribe tus apellidos" required>
-                
-                <label for="usuario">Grupo:</label>
-                <input type="text" id="grupo" name="Grupo" class="inputs" placeholder="Escribe tu grupo" required>
-                
-                <label for="text">Nombre del tutor:</label>
-                <input type="text" id="tutor" name="Tutor" class="inputs" placeholder="Escribe el nombre de tu tutor" required>
-                
-                <label for="usuario">Correo:</label>
-                <input type="email" id="correo" name="Correo" class="inputs" placeholder="Escribe tu correo" required>
-                
-                <label for="text">Nombre de carrera:</label>
-                <input type="text" id="carrera" name="Carrera" class="inputs" placeholder="Escribe el nombre completo de tu carrera" required>
-                
-                <label for="text">Contraseña:</label>
-                <input type="password" id="contra" name="Password" class="inputs" placeholder="Crea una contraseña" required>
-                
-                <label for="text">Confirmar Contraseña:</label>
-                <input type="password" id="contra_confirmar" name="pass_confirmar" class="inputs" placeholder="Escribe nuevamente la contraseña" required>
-                
-                <input type="button" value="Regresar" onclick="window.location.href='login'" class="btn-regresar">
-                <input type="submit" value="Regístrate" class="iniciar">
-            </form>
+    <div class="content-wrapper">
+        <div class="text-section">
+            <center><h2>Bienvenidos a EmergencyApp</h2>
+            <p>Crea una cuenta para descubrir este mundo de entrenamientos seguros</p></center>
         </div>
+
+        <div class="container-principalDos">
+            <div class="containerDos">
+                <center><h2 style="font-weight: 700; color: #ffc105">Crea una nueva cuenta</h2></center>
+                <br>
+                <form action="/database/estudiantes" method="post" onsubmit="return validarFormulario()">
+                    <div class="input-container">
+                        <input type="email" id="correo" name="Correo" class="inputs" placeholder="" required>
+                        <label for="usuario">Correo:</label>                
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="nombre" name="nombre" class="inputs" placeholder="" required>
+                        <label for="usuario">Nombre:</label>                
+                    </div>
+                    <div class="input-container">
+                        <input type="password" id="contra" name="Password" class="inputs" placeholder="" required>
+                        <label for="text">Contraseña:</label>
+                    </div>    
+                    <div class="input-container">
+                        <input type="password" id="contra_confirmar" name="pass_confirmar" class="inputs" placeholder="" required>
+                        <label for="text">Confirmar Contraseña:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="number" id="edad_user" name="edad_confirmar" class="inputs" placeholder="" required>
+                        <label for="text">Ingresa tu edad:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="number" id="peso_user" name="peso_confirmar" class="inputs" placeholder="" required>
+                        <label for="text">Ingresa tu peso:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="double" id="altura_user" name="altura_confirmar" class="inputs" placeholder="" required>
+                        <label for="text">Ingresa tu estatura:</label>
+                    </div>
+                    <div class="text-center mt-4 button-container">
+                        <input type="button" value="REGRESAR" class="iniciar" onclick="window.location.href='/'">
+                        <input type="submit" value="REGISTRARSE" class="iniciar">
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
     <footer>
         <div id="dynamic-footer">
