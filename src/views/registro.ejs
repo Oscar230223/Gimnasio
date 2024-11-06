@@ -25,42 +25,48 @@
         <b><h1 class="text">EmergencyApp</h1></b>
     </header>
     <div class="content-wrapper">
+        <div class="text-section">
+            <center><h2>Bienvenidos a EmergencyApp</h2>
+            <p>Crea una cuenta para descubrir este mundo de entrenamientos seguros</p></center>
+        </div>
+
         <div class="container-principalDos">
             <div class="containerDos">
                 <center><h2 style="font-weight: 700; color: #ffc105">Crea una nueva cuenta</h2></center>
                 <br>
                 <form action="/database/estudiantes" method="post" onsubmit="return validarFormulario()">
-                    
-                    <label for="usuario">Correo:</label>
-                    <input type="email" id="correo" name="Correo" class="inputs" placeholder="Escribe tu correo" required>
-                    
-                    <label for="text">Contraseña:</label>
-                    <input type="password" id="contra" name="Password" class="inputs" placeholder="Crea una contraseña" required>
-                    
-                    <label for="text">Confirmar Contraseña:</label>
-                    <input type="password" id="contra_confirmar" name="pass_confirmar" class="inputs" placeholder="Escribe nuevamente la contraseña" required>
-
-                    <label for="text">Edad:</label>
-                    <input type="number" id="edad_user" name="edad_confirmar" class="inputs" placeholder="Ingresa tu edad" required>
-
-                    <label for="text">Peso:</label>
-                    <input type="number" id="peso_user" name="peso_confirmar" class="inputs" placeholder="Ingresa tu peso" required>
-
-                    <label for="text">Peso:</label>
-                    <input type="number" id="altura_user" name="altura_confirmar" class="inputs" placeholder="Ingresa tu altura" required>
-                    
-                    <div class="text-center mt-4">
-                        <br>
+                    <div class="input-container">
+                        <input type="email" id="correo" name="Correo" class="inputs" placeholder="" required>
+                        <label for="usuario">Correo:</label>                
+                    </div>
+                    <div class="input-container">
+                        <input type="password" id="contra" name="Password" class="inputs" placeholder="" required>
+                        <label for="text">Contraseña:</label>
+                    </div>    
+                    <div class="input-container">
+                        <input type="password" id="contra_confirmar" name="pass_confirmar" class="inputs" placeholder="" required>
+                        <label for="text">Confirmar Contraseña:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="number" id="edad_user" name="edad_confirmar" class="inputs" placeholder="" required>
+                        <label for="text">Ingresa tu edad:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="number" id="peso_user" name="peso_confirmar" class="inputs" placeholder="" required>
+                        <label for="text">Ingresa tu peso:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="double" id="altura_user" name="altura_confirmar" class="inputs" placeholder="" required>
+                        <label for="text">Ingresa tu estatura:</label>
+                    </div>
+                    <div class="text-center mt-4 button-container">
+                        <input type="button" value="REGRESAR" class="iniciar" onclick="window.location.href='/'">
                         <input type="submit" value="REGISTRARSE" class="iniciar">
                     </div>
                 </form>
             </div>
         </div>
 
-        <div class="text-section">
-            <center><h2>Bienvenidos a EmergencyApp</h2>
-            <p>Accede a tu cuenta para descubrir este mundo de entrenamientos.</p></center>
-        </div>
     </div>
     <footer>
         <div id="dynamic-footer">
