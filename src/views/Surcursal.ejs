@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Alumnos UFCJ</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!--metadatos-->
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Universidad Fronteriza de Ciudad Juárez, 16 días de activismo contra la violencia de género..."/>
+    <meta name="keywords" content="Fronteriza, Universidad, Activismo"/>
+    <meta name="robots" content="index"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/EstiloFooter.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/alumnos.css">
+    <link rel="stylesheet" href="/css/buscador.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>  
+</head>
+
+<style>
+
+    .Texto2{
+        letter-spacing: 4px;
+        color: white;
+        font-weight: 700;
+        text-align: end;
+        transform: translate(20%);
+        font-size: 40px;
+        margin-top: -100px;
+
+    }
+    .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items:center; 
+            height: 80vh; 
+            flex-direction: column;
+            padding-top: 70px;
+    }
+    .Mapa{
+        align-items: center;
+        height: 400px;
+        width: 700px;
+    }
+    p{
+        font-size: 25px;
+        display: block;
+        text-align: left ;
+        margin-top: 10px;
+        padding-left: 320px; /* Ajusta el valor según lo que necesites */
+    }
+    .Texto{
+        font-size: 15px;
+        display: block;
+        text-align: left ;
+        margin-top: 10px;
+        padding-left: 320px; /* Ajusta el valor según lo que necesites */
+    }
+</style>
+
+<body>
+    <header class="">
+        <div class="logo">
+            <a href="/">
+                <img alt="UFCJ" class="logo" src="/images/logo.png"/>
+            </a>
+        </div>
+        <b><h1 class="ufcj">EmergencyApp</h1></b>
+        </div>
+    </header>
+
+    <div id="menu">
+        <ul id="menu-list">
+            <!--Elementos dinámicos-->
+        </ul>
+    </div>
+    <script src="/js/Menu.js"></script>
+
+    <div class="wrapper">
+        <h1 class="Texto2">Sucursal</h1>
+        <div id="map" class="Mapa"></div>
+    </div>
+    <p>● ● Dirección </p>
+    <p class="Texto">Trainer Gym Mezquital, Is Art, Calle Libramiento Regional, Hacienda de la luz. Plaza Time, Fraccionamiento</p>
+    <p class="Texto"> El Mezquital, 32695 Chih.</p>
+    <p>● ● Horario </p>
+    <p class="Texto">Lunes a Viernes 6:00 am - 11:00 pm</p>
+    <p class="Texto">Sábado a Domingo 8:00 am - 4:00 pm</p>
+    
+
+    <!-- Script para inicializar el mapa -->
+    <script>
+        // Coordenadas de Trainer Gym Mezquital en Ciudad Juárez
+            var lat = 31.7328;
+            var lon = -106.4635;
+        
+    
+            var map = L.map('map').setView([lat, lon], 15);  
+    
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+        
+    
+            L.marker([lat, lon]).addTo(map)
+                .bindPopup('Trainer Gym Mezquital - Ciudad Juárez')
+                    .openPopup();
+        </script>
+
+    <br><br><br>
+
+    <footer>
+        <div id="dynamic-footer">
+        </div>
+    </footer>
+
+
+    <script src="/js/Footer.js"></script>
+</body>
+</html>
