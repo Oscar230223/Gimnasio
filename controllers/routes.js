@@ -13,8 +13,8 @@ router.get("/ActualizarContraseña", (req, res) => {
     res.render("actualizar_contraseña");
 });
 
-router.get("/Alumnos", (req, res) => {
-    res.render("alumnos");
+router.get("/Sucursal", (req, res) => {
+    res.render("Sucursal");
 });
 
 router.get("/BuzonQuejas", (req, res) => {
