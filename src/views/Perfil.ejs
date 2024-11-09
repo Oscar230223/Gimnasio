@@ -67,11 +67,10 @@
 
     <div class="contenedor">
         <center><br>
-            <p><strong>Nombre:</strong> <%= nombre %></p>
-            <p><strong>Matrícula:</strong> <%= matricula %></p>
-            <p><strong>Grupo:</strong> <%= grupo %></p>
-            <p><strong>Tutor:</strong> <%= tutor %></p>
-            <p><strong>Carrera:</strong> <%= carrera %></p><br>
+            <p><strong>Nombre:</strong> <%= typeof nombre !== 'undefined' ? nombre : '' %></p>
+            <p><strong>Edad:</strong> <%= typeof grupo !== 'undefined' ? grupo : '' %></p>
+            <p><strong>Peso:</strong> <%= typeof tutor !== 'undefined' ? tutor : '' %></p>
+            <p><strong>Estatura:</strong> <%= typeof carrera !== 'undefined' ? carrera : '' %></p><br>     
         </center>
     </div>
 
@@ -98,7 +97,7 @@
             fetch('/logout', { method: 'POST', credentials: 'include' })
                 .then(() => {
                     localStorage.removeItem('token');
-                    window.location.href = '/login';
+                    window.location.href = '/';
                 })
                 .catch(err => console.error('Error al cerrar sesión:', err));
         }

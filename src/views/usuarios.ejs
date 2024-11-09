@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Usuarios - Admin</title>
+    <!-- Añade estilos y meta datos aquí -->
+</head>
+<body>
+    <h1>Lista de Usuarios</h1>
+    <div id="usuarios">
+        <% usuarios.forEach(usuario => { %>
+            <div class="user-card">
+                <p><strong>Nombre:</strong> <%= usuario.nombre %></p>
+                <p><strong>Estado:</strong> <%= usuario.estado %></p>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

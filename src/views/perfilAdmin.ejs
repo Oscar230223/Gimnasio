@@ -24,16 +24,25 @@
         <button class="logout-btn" onclick="logout()">Cerrar sesión</button>
     </header>
 
+    <form action="/database/admin/login" method="POST"> <!-- Cambia aquí la acción -->
+        <label for="correo">Correo:</label>
+        <input type="email" name="correo" id="correo" required>
+        
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" id="password" required>
+        
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
     <div class="button-container">
         <button class="tab-button" onclick="showContent('usuarios')">Usuarios</button>
         <button class="tab-button" onclick="showContent('reportes')">Reportes</button>
     </div>
 
+    
     <div id="usuarios" class="content">
-        <div class="user-card">
-            <p><strong>Nombre:</strong> </p>
-            <p><strong>Estado:</strong> </p>
-        </div>
+        <p><strong>Nombre:</strong> </p>
+        <p><strong>Estado:</strong> </p>
     </div>
 
     <div id="reportes" class="content">
@@ -51,6 +60,15 @@
         }
         showContent('usuarios');
     </script>
-
+    <script>
+        function logout() {
+            fetch('/logout', { method: 'POST', credentials: 'include' })
+                .then(() => {
+                    localStorage.removeItem('token');
+                    window.location.href = '/';
+                })
+                .catch(err => console.error('Error al cerrar sesión:', err));
+        }
+    </script>
 </body>
 </html>

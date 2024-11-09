@@ -62,8 +62,9 @@ app.post('/recuperar-contrasena', async (req, res) => {
     }
 });
 
+
 app.use("/", routes);
-app.use("/", rbd);
+app.use("/database", rbd);
 
 const PORT = 3000;
 app.listen(PORT, () => {
