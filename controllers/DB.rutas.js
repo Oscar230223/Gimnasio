@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Estudiante = require('./Models/estudiante');
+const Alerta = require('./Models/alertas');
 const Buzon = require('./Models/buzon');
 const Chat = require('./Models/chat');
 const Administrador = require('./Models/administrador');
 const crypto = require("crypto");
-const chat = require('./Models/chat');
 const { JsonWebTokenError } = require('jsonwebtoken');
 const jwt = require('jsonwebtoken');
 const secretKey = 'hola';
@@ -200,16 +200,7 @@ router.post('/database/chat', async (req, res) => {
 });
 
 
-router.get('/chat', async (req, res) => {
-    try {
-        const datos = await chat.find();
-        console.log(datos);
-        return res.render("Chat",{datos:datos})
-        //res.status(200).json(datos);
-    } catch (err) {
-        res.status(500).json({ error: 'Ocurrió un error al obtener los datos' });
-    }
-});
+
 
 // Ruta para registrar un nuevo administrador
 router.post('/admin/registro', async (req, res) => {
@@ -266,6 +257,63 @@ router.post('/admin/login', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+router.get('/estudiantes', async (req, res) => {
+    try {
+        const datos = await Estudiante.find(); // Asegúrate de usar el modelo correcto aquí
+        console.log(datos);
+        return res.json(datos); // Enviar JSON para verificar datos sin renderizar
+    } catch (err) {
+        console.error('Error al obtener los datos:', err); // Muestra el error en la consola
+        res.status(500).json({ error: 'Ocurrió un error al obtener los datos' });
+    }
+});
+
+
+router.get('/estudiantes/:id', async (req, res) => {
+    try {
+        const id = req.params.id; // Obtener el parámetro 'id' de la URL
+        const estudiante = await Estudiante.findOne({ _id: id }); // Buscar un solo estudiante por su ID
+        if (!estudiante) {
+            return res.status(404).json({ error: 'Estudiante no encontrado' });
+        }
+        console.log(estudiante);
+        return res.json(estudiante); // Enviar el estudiante encontrado
+    } catch (err) {
+        console.error('Error al obtener los datos:', err);
+        res.status(500).json({ error: 'Ocurrió un error al obtener los datos' });
+    }
+});
+
+router.get('/alerta', async (req, res) => {
+    try {
+        const datos = await Alerta.find(); // Asegúrate de usar el modelo correcto aquí
+        console.log(datos);
+        return res.json(datos); // Enviar JSON para verificar datos sin renderizar
+    } catch (err) {
+        console.error('Error al obtener los datos:', err); // Muestra el error en la consola
+        res.status(500).json({ error: 'Ocurrió un error al obtener los datos' });
+    }
+});
+
+router.get('/api/usuario', async (req, res) => {
+    try {
+        const email = req.user.email; // Se asume que el correo del usuario está disponible en el objeto de sesión o JWT
+
+        // Busca al usuario por su correo
+        const usuario = await Estudiante.findOne({ email: email });
+
+        if (!usuario) {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+
+        res.json(usuario); // Devuelve los datos del usuario
+    } catch (err) {
+        console.error('Error al obtener los datos del usuario:', err);
+        res.status(500).json({ error: 'Ocurrió un error al obtener los datos' });
+    }
+});
+
 
 // Función de verificación de token solo para administradores
 const verificarTokenAdmin = (req, res, next) => {
@@ -347,5 +395,10 @@ router.get('/perfilAdmin', async (req, res) => {
 router.get('/calificaciones', async (req, res) => {
 
 });
+
+
+
+
+
 
 module.exports = router;

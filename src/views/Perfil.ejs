@@ -27,30 +27,28 @@
 
     <div class="contenedor-principal">
         <div class="profile-box">
-            <img src="/images/user.png" alt="Foto de Perfil" class="profile-img">
-            <h2> Karen Adriana Morales Andrade </h2>
+            <img src="/images/user.png" alt="Foto de Perfil" class="profile-img" id="profile-img">
+            <h2 id="user-name">Cargando...</h2>
             <div class="info-grid">
                 <div class="info-item">
-                    <p><strong>Edad:</strong> <br> 21 </p>
+                    <p><strong>Edad:</strong> <br> <span id="user-age">Cargando...</span></p>
                 </div>
                 <div class="info-item">
-                    <p><strong>Peso:</strong> <br> 50 </p>
+                    <p><strong>Peso:</strong> <br> <span id="user-weight">Cargando...</span></p>
                 </div>
                 <div class="info-item">
-                    <p><strong>Estatura:</strong> <br> 1.60 </p>
+                    <p><strong>Estatura:</strong> <br> <span id="user-height">Cargando...</span></p>
                 </div>
             </div>
         </div>
 
         <div class="extra-content">
-            <!--img src="/images/muscle.png" alt="Motivación" class="extra-img"-->
             <p class="inspirational-quote">"Un entrenamiento seguro, sólo lo encontrarás en nuestra sucursal."</p>
         </div>
     </div>
 
     <footer>
-        <div id="dynamic-footer">
-        </div>
+        <div id="dynamic-footer"></div>
     </footer>
     <script src="/js/Footer.js"></script>
     <script>
@@ -62,6 +60,30 @@
                 })
                 .catch(err => console.error('Error al cerrar sesión:', err));
         }
+
+        // Función para obtener los datos del usuario por correo
+        function getUserData() {
+            fetch('/api/usuario', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Se asume que usas un token de sesión
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById('profile-img').src = data.profileImage || '/images/user.png';
+                    document.getElementById('user-name').textContent = data.name;
+                    document.getElementById('user-age').textContent = data.age;
+                    document.getElementById('user-weight').textContent = data.weight;
+                    document.getElementById('user-height').textContent = data.height;
+                }
+            })
+            .catch(error => console.error('Error al obtener los datos del usuario:', error));
+        }
+
+        // Llamar a la función para obtener los datos al cargar la página
+        window.onload = getUserData;
     </script>
 </body>
 </html>

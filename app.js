@@ -9,6 +9,8 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 const app = express();
 
+
+
 //Configurar nodemailer
 const transporter = nodemailer.createTransport({
     service: 'gmail', //Tipo de servicio
@@ -59,6 +61,26 @@ app.post('/recuperar-contrasena', async (req, res) => {
     } catch (error) {
         console.error('Error al enviar el correo:', error);
         res.status(500).send('Error al enviar el correo');
+    }
+});
+app.use('/api', routes); 
+app.get('/estudiantes', async (req, res) => {
+    try {
+        const datos = await chat.find();
+        console.log(datos);
+        return res.render("Estudiantes", { datos: datos });
+    } catch (err) {
+        res.status(500).json({ error: 'Ocurrió un error al obtener los datos' });
+    }
+});
+
+app.get('/alertas', async (req, res) => {
+    try {
+        const datos = await chat.find();
+        console.log(datos);
+        return res.render("Alertas", { datos: datos });
+    } catch (err) {
+        res.status(500).json({ error: 'Ocurrió un error al obtener los datos' });
     }
 });
 
