@@ -37,19 +37,22 @@
                 <div class="container">
                     <center><h2 style="font-weight: 700; color: white; margin-bottom: 20px;">Buzón de quejas</h2></center>
                 
-                <form action="/submit-complaint" method="POST">                    
-                    <label for="date">Fecha</label>
-                    <input type="date" id="date" name="date" required>
-            
-                    <label for="location">Lugar donde ocurrió</label>
-                    <input type="text" id="location" name="location" required>
-            
-                    <label for="details">Detalles del problema</label>
-                    <textarea id="details" name="details" rows="4" required></textarea>
-            
-                    <button type="submit">Enviar</button>
-                </form
-                ></div>
+                    <form action="/submit-complaint" method="POST">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    
+                        <label for="date">Fecha</label>
+                        <input type="date" id="date" name="date" required>
+                    
+                        <label for="location">Lugar donde ocurrió</label>
+                        <input type="text" id="location" name="location" required>
+                    
+                        <label for="details">Detalles del problema</label>
+                        <textarea id="details" name="details" rows="4" required></textarea>
+                    
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
             </div>
         <br><br><br>
         </div>

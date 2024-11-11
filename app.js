@@ -62,6 +62,35 @@ app.post('/recuperar-contrasena', async (req, res) => {
     }
 });
 
+app.post("/submit-complaint", async (req, res) => {
+    const { email, date, location, details } = req.body;
+
+    const userEmail = email || "correo_desconocido@example.com"; 
+
+    const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: "lunajanethc45@gmail.com", 
+            pass: "bmlictpzctdkhbnv",        
+        },
+    });
+
+    const mailOptions = {
+        from: `"Queja recibida" <${userEmail}>`,
+        to: "perlis2433@gmail.com",  
+        subject: "Buzón de quejas (EmergencyApp)",
+        text: `Fecha: ${date}\nLugar: ${location}\nDetalles del problema: ${details}`,
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.send("La queja se ha enviado correctamente.");
+    } catch (error) {
+        console.error("Error al enviar el correo:", error);
+        res.status(500).send("Hubo un problema al enviar la queja.");
+    }
+});
+
 
 app.use("/", routes);
 app.use("/database", rbd);
